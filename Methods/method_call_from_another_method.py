@@ -5,7 +5,11 @@ class Backpack:
 
     @property
     def items(self):
-        return self._items    
+        return self._items
+    
+    def add_multiple_items(self, items):
+        for item in items:
+            self.add_item(item)
     
     def add_item(self, item):
         if isinstance(item, str):
@@ -32,18 +36,6 @@ class Backpack:
 
 backpack = Backpack()
 
-backpack.add_item('Bottle')
-backpack.add_item('Umbrella')
-backpack.add_item('Cap')
-
 print(backpack.items)
-    
-backpack.remove_item('Bottle')
-
+backpack.add_multiple_items(["Torch","Bottle","Candle","Snacks"])
 print(backpack.items)
-
-print(backpack.has_item('Cap'))
-backpack.add_item('Bottle')
-
-print("Not sorted")
-backpack.show_items(True)
